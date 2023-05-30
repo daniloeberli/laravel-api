@@ -13,8 +13,23 @@ class UserController extends Controller
          return response()->json([
              'success' => true,
              'results' => $projects
-         ]);
+         ]);   
+    }
 
-        
+    public function show($id){
+        $projects = Project::where('id', $id)->with('type', 'technologies')->first();
+
+
+        if ($projects) {
+            return response()->json([
+                'success' => true,
+                'results' => $projects
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'results' => null
+            ], 404);
+        }
     }
 }

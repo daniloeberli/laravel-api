@@ -20,3 +20,4 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('projects',[UserController::class,'index']);
+Route::get('projects/{id}',[UserController::class,'show']);
