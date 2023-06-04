@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\TypeController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,3 +22,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('projects',[UserController::class,'index']);
 Route::get('projects/{id}',[UserController::class,'show']);
+Route::get('types',[TypeController::class,'index']);
+Route::get('types/{slug}',[TypeController::class,'show']);
