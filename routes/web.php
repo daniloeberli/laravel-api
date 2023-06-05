@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\DashBoardController;
 //use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\TypeController;
+use App\Http\Controllers\Admin\LeadController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,6 +28,8 @@ Route::middleware(['auth','verified'])->prefix('admin')->name('admin.')->group(f
 
     Route::resource('projects', ProjectController::class);
     Route::resource('types', TypeController::class);
+    Route::get('leads',[LeadController::class,'index'])->name('leads.index');
+    Route::delete('leads/{lead}',[LeadController::class,'destroy'])->name('leads.destroy');
     // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
